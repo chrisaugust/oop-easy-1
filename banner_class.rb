@@ -1,5 +1,7 @@
 class Banner
   def initialize(message)
+    @message = message
+    @char_sizing = @message.length + 2
   end
 
   def to_s
@@ -9,9 +11,15 @@ class Banner
   private
 
   def horizontal_rule
+    rule = "+"
+    @char_sizing.times { rule << "-" }
+    rule << "+"
   end
 
   def empty_line
+    spaces = ""
+    @char_sizing.times { spaces << " " }
+    "|#{spaces}|"
   end
 
   def message_line
@@ -24,16 +32,16 @@ end
 # not make the implementation details public.
 
 # Test Cases
-# banner = Banner.new('To boldly go where no one has gone before.')
-# puts banner
+banner = Banner.new('To boldly go where no one has gone before.')
+puts banner
 # +--------------------------------------------+
 # |                                            |
 # | To boldly go where no one has gone before. |
 # |                                            |
 # +--------------------------------------------+
 #
-# banner = Banner.new('')
-# puts banner
+banner = Banner.new('')
+puts banner
 # +--+
 # |  |
 # |  |
