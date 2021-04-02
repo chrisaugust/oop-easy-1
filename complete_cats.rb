@@ -1,18 +1,21 @@
 class Pet
-  attr_reader :name, :age, :color
-
-  def initialize(name, age, color)
+  def initialize(name, age)
     @name = name
     @age = age
-    @color = color
-  end
-  
-  def to_s
-    "My cat #{self.name} is #{self.age} years old and has #{self.color} fur."
   end
 end
 
 class Cat < Pet
+  attr_reader :name, :age, :colors
+
+  def initialize(name, age, colors)
+    super(name, age)
+    @colors = colors
+  end
+
+   def to_s                                                                    
+     "My cat #{self.name} is #{self.age} years old and has #{self.colors} fur."
+   end
 end
 
 pudding = Cat.new('Pudding', 7, 'black and white')
